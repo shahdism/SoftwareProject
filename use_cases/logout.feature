@@ -16,29 +16,12 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: Admin login
-	Description: The admin logs into the e-library 
+@tag
+Feature: Admin logout
+	Description: The admin logs out from the clinc
 	Actor: Admin
 	
-Scenario: Admin can login
-	Given that the admin is not logged in
-	And the password is "adminAhmad"
-	And the username is "ahmad"
-	Then the admin login succeeds
-	And the admin is logged in
-	
-Scenario: Admin has the wrong password
-	Given that the admin is not logged in
-	And the password is "admin434"
-	Then the admin login fails
-	And the admin is not logged in
-
-	
-	Scenario: Admin has the wrong username
-	Given that the admin is not logged in
-	And the username is "muna"
-	Then the admin login fails
-	And the admin is not logged in
-	
-
-	
+Scenario: Admin logs out
+	Given that the admin is logged in
+	When the admin logs out
+	Then the admin is not logged in

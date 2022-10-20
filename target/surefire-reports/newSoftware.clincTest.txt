@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: newSoftware.clincTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 2.389 sec <<< FAILURE!
+User registered successfully(Registration for users)  Time elapsed: 0.027 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at newSoftware.register.the_user_with_id_is_name_email_address_password_is_register_successfully_in_clinc(register.java:68)
+	at ?.The user with id is "1", name "tassneem" ,email "tassneem@gmail.com",address "jenin",password "1234" is register successfully in clinc(file:///C:/Users/2020/eclipse-workspace/newSoftware/use_cases/registration.feature:26)
+
+User not registered successfully(Registration for users)  Time elapsed: 0.01 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at newSoftware.register.the_user_is_not_registered_in_clinc(register.java:87)
+	at ?.The user is not registered in clinc(file:///C:/Users/2020/eclipse-workspace/newSoftware/use_cases/registration.feature:36)
+
+Pull user registration(Registration for users)  Time elapsed: 0.016 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at newSoftware.register.the_user_is_unregister(register.java:118)
+	at ?.The user is unregister(file:///C:/Users/2020/eclipse-workspace/newSoftware/use_cases/registration.feature:42)
+

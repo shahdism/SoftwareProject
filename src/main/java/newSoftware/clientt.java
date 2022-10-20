@@ -3,16 +3,19 @@ package newSoftware;
 import java.util.ArrayList;
 
 public class clientt {
+	
+	
 		
 		
 		public static ArrayList<clientt> clients =new ArrayList<clientt>() ;
+		public static ArrayList<appointment> app =new ArrayList<appointment>() ;
+		public String id;
 		public String name;
+		public String email;
+		public String address;
 		public String password;
-		//public String city;
-		//public String role;
-		//public String address;
-		//public String email;
-		//public String id;
+		public String role;
+		
 		
 		
 		public int checkpass(String string) {
