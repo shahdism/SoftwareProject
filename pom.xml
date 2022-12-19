@@ -3,6 +3,11 @@
   <groupId>softwareclinc</groupId>
   <artifactId>newSoftware</artifactId>
   <version>0.0.1-SNAPSHOT</version>  
+  
+   <properties>
+<maven.compiler.source>6</maven.compiler.source>
+<maven.compiler.target>1.6</maven.compiler.target>
+</properties>
 
    <dependencies>
   
@@ -12,11 +17,6 @@
     <artifactId>junit</artifactId>
     <version>4.13.1</version>
     <scope>test</scope>
-  
-  <properties>
-<maven.compiler.source>6</maven.compiler.source>
-<maven.compiler.target>1.6</maven.compiler.target>
-</properties>
 </dependency>
      
 
