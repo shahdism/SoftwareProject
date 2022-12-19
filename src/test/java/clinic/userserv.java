@@ -1,7 +1,9 @@
-package newSoftware;
+package clinic;
 
 import static org.junit.Assert.assertTrue;
 
+import clinic.MyClient;
+import clinic.MyServices;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -9,8 +11,8 @@ public class userserv {
 	boolean added=false;
 	boolean deleted=false;
 
-	services s1;
-	public userserv(services s2)
+	MyServices s1;
+	public userserv(MyServices s2)
 	{
 		s1=s2;
 	}
@@ -32,11 +34,11 @@ public class userserv {
 			
 			s1.serviceName=co1;
 			s1.price=co2;
-			s1.serviceId=co3;
-			services.exsitingServices.add(s1);
+			s1.serviceid=co3;
+			MyServices.exsitingServices.add(s1);
 			System.out.println(s1.price);
 			System.out.println(s1.serviceName);
-			System.out.println(s1.serviceId);
+			System.out.println(s1.serviceid);
 
 
 			
@@ -46,10 +48,10 @@ public class userserv {
 	@When("the user select service with name {string},price {int},id {string}")
 	public void the_user_select_service_with_name_price_id(String string, Integer int1, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
-		for(services d :services.exsitingServices)
+		for(MyServices d :MyServices.exsitingServices)
 		{
-			if(d.serviceId.equals(string2))
-				clientt.srvs.add(d);
+			if(d.serviceid.equals(string2))
+				MyClient.srvs.add(d);
 			added=true;
 		}
 	}
@@ -64,10 +66,10 @@ public class userserv {
 	@When("the user try to cancel the service with name {string},price {int},id {string}")
 	public void the_user_try_to_cancel_the_service_with_name_price_id(String string, Integer int1, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
-		for(services a:clientt.srvs)
+		for(MyServices a:MyClient.srvs)
 		{
-			if(a.serviceId.equals(string2))
-				clientt.srvs.remove(a);
+			if(a.serviceid.equals(string2))
+				MyClient.srvs.remove(a);
 			deleted=true;
 			
 		}

@@ -1,20 +1,21 @@
-package newSoftware;
+package clinic;
 
 import static org.junit.Assert.assertTrue;
 
+import clinic.MyClient;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class registrTest {
+public class register {
 	
-	clientt cc;
-	clientt ccc;
+	MyClient cc;
+	MyClient ccc;
 	static boolean exist=false;
 	static boolean registerr=false;
 	static boolean out=false;
 
-	public registrTest(clientt c){
+	public register(MyClient c){
 		cc=c;
 		
 	}
@@ -28,7 +29,7 @@ public class registrTest {
 	@Given("The user with id {string}, name {string} ,email {string},address {string},password {string}")
 	public void the_user_with_id_name_email_address_password(String string, String string2, String string3, String string4, String string5) {
 	    // Write code here that turns the phrase above into concrete actions
-		 for(clientt c :clientt.clients) {
+		 for(MyClient c :MyClient.clients) {
 		    	if(c.id.equals(string)) {
 		    		exist=true;
 		    	}
@@ -57,7 +58,7 @@ public class registrTest {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		if(exist==false) {
-			clientt.clients.add(cc);
+			MyClient.clients.add(cc);
 			}
 			assertTrue( registerr);
 		
@@ -79,22 +80,22 @@ public class registrTest {
 	@Given("The user with id {string},name {string}")
 	public void the_user_with_id_name(String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
-		ccc=new clientt();
+		ccc=new MyClient();
 		ccc.id="7";
 		ccc.name="shahd";
-  	    	   clientt.clients.add(ccc);
+  	    	   MyClient.clients.add(ccc);
 	}
 
 	@When("The Admin unregister the user")
 	public void the_admin_unregister_the_user() {
 	    // Write code here that turns the phrase above into concrete actions
- 	   clientt.clients.remove(ccc);
+ 	   MyClient.clients.remove(ccc);
 	}
 
 	@Then("The user is unregister")
 	public void the_user_is_unregister() {
 	    // Write code here that turns the phrase above into concrete actions
-		   for(clientt r : clientt.clients)
+		   for(MyClient r : MyClient.clients)
     	   {
     		   if(r.id == ccc.id) //if we found id==7 is still not remove
     			   out=false;

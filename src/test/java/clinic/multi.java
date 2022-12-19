@@ -1,7 +1,9 @@
-package newSoftware;
+package clinic;
 
 import static org.junit.Assert.assertTrue;
 
+import clinic.Appointment;
+import clinic.MyClient;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,11 +12,11 @@ public class multi {
 	boolean stop=false;
 	boolean size=false,delete=false,update=false;
 int num;
-	appointment a1;
-	clientt c1;
+Appointment a1;
+	MyClient c1;
 	
 	
-	public multi( appointment a ,clientt c    ) {
+	public multi( Appointment a ,MyClient c    ) {
 		a1=a;
 		c1=c;
 	}
@@ -22,12 +24,12 @@ int num;
 	@Given("the user with id {string} is registerd")
 	public void the_user_with_id_is_registerd(String string) {
 	    
-		for(clientt c :clientt.clients) {
+		for(MyClient c :MyClient.clients) {
 	    	if(c.id.equals(string)) {
-	    		registrTest.registerr=true;
+	    		register.registerr=true;
 	    	}
 	    	else {
-	    		registrTest.registerr=false;
+	    		register.registerr=false;
 
 		}
 		}
@@ -48,13 +50,13 @@ int num;
 			int  co3= Integer.parseInt(dataTable.cell(i, 2));	
 			int co4= Integer.parseInt(dataTable.cell(i, 3));
 			int co5= Integer.parseInt(dataTable.cell(i, 4));
-	         a1.Section=co1;
+	         a1.section=co1;
 	         a1.time=co2;
 	         a1.day=co3;
 	         a1.week=co4;
 	         a1.month=co5;
 			
-			appointment.userBooking.add(a1);
+	         Appointment.userBooking.add(a1);
 		}
 
 		
@@ -63,14 +65,14 @@ int num;
 	@When("the user select appointment with section {string}, time {string}, day {int},week {int},month {int}")
 	public void the_user_select_appointment_with_section_time_day_week_month(String string, String string2, Integer int1, Integer int2, Integer int3) {
 	
-	if (clientt.app.size()<3) {
+	if (MyClient.app.size()<3) {
 		
-	a1.Section=string;
+	a1.section=string;
 	a1.time=string2;
 	a1.day=int1;
 	a1.week=int2;
 	a1.month=int3;
-	clientt.app.add(a1);
+	MyClient.app.add(a1);
 		
 		
 		
@@ -84,14 +86,14 @@ int num;
 
 	@When("appointment with section {string}, time {string}, day {int},week {int},month {int}")
 	public void appointment_with_section_time_day_week_month(String string, String string2, Integer int1, Integer int2, Integer int3) {
-		if (clientt.app.size()<3) {
+		if (MyClient.app.size()<3) {
 			
-			a1.Section=string;
+			a1.section=string;
 			a1.time=string2;
 			a1.day=int1;
 			a1.week=int2;
 			a1.month=int3;
-			clientt.app.add(a1);
+			MyClient.app.add(a1);
 				
 				
 				
@@ -102,7 +104,7 @@ int num;
 	@Then("these appointments are booked")
 	public void these_appointments_are_booked() {
 		
-		if (clientt.app.size()<3) {
+		if (MyClient.app.size()<3) {
 booking.isbooked=true;			
 size=true;
 		assertTrue(booking.isbooked&&size);
@@ -116,13 +118,13 @@ size=true;
 @When("the user try to book multi appointments")
 public void the_user_try_to_book_multi_appointments() {
 	
-	 registrTest.registerr =false;
+	 register.registerr =false;
 
 }	
 
 @Then("the user can not book multi appointments")
 public void the_user_can_not_book_multi_appointments() {
-	if (  registrTest.registerr ==false  ) {
+	if (  register.registerr ==false  ) {
 				assertTrue(!booking.isbooked);
 
 			}
@@ -146,13 +148,13 @@ public void the_user_choose_more_than_appointments_from(Integer int1, io.cucumbe
 		int  co3= Integer.parseInt(dataTable.cell(i, 2));	
 		int co4= Integer.parseInt(dataTable.cell(i, 3));
 		int co5= Integer.parseInt(dataTable.cell(i, 4));
-	       a1.Section=co1;
+	       a1.section=co1;
            a1.time=co2;
          a1.day=co3;
          a1.week=co4;
          a1.month=co5;
 		
-		appointment.userBooking.add(a1);
+         Appointment.userBooking.add(a1);
 		
 	}
 	
@@ -184,12 +186,12 @@ public void the_user_select_appointments_with_number(Integer int1) {
 @Given("the user with id {string} is register")
 public void the_user_with_id_is_register(String string) {
    
-		for(clientt c :clientt.clients) {
+		for(MyClient c :MyClient.clients) {
 	    	if(c.id.equals(string)) {
-	    		registrTest.registerr=true;
+	    		register.registerr=true;
 	    	}
 	    	else {
-	    		registrTest.registerr=false;
+	    		register.registerr=false;
 
 		}
 		}
@@ -207,13 +209,13 @@ public void the_user_is_already_booked_these_appointments(io.cucumber.datatable.
 		int  co3= Integer.parseInt(dataTable.cell(i, 2));	
 		int co4= Integer.parseInt(dataTable.cell(i, 3));
 		int co5= Integer.parseInt(dataTable.cell(i, 4));
-       a1.Section=co1;
+       a1.section=co1;
          a1.time=co2;
          a1.day=co3;
          a1.week=co4;
          a1.month=co5;
 		
-		clientt.app.add(a1);
+		MyClient.app.add(a1);
 		
 	}
 	
@@ -225,10 +227,10 @@ public void the_user_is_already_booked_these_appointments(io.cucumber.datatable.
 public void the_user_needs_to_delete_appointment_with_section_time_day_week_month(String string, String string2, Integer int1, Integer int2, Integer int3) {
     // Write code here that turns the phrase above into concrete actions
 
-	for(appointment b :clientt.app) {
-    	if(b.Section.equals(string)&& b.time.equals(string2)&& b.day==int1 &&b.week==int2 && b.month== int3){
+	for(Appointment b :MyClient.app) {
+    	if(b.section.equals(string)&& b.time.equals(string2)&& b.day==int1 &&b.week==int2 && b.month== int3){
 
-    		clientt.app.remove(b);
+    		MyClient.app.remove(b);
             delete=true;
 
     	}
@@ -239,7 +241,7 @@ public void the_user_needs_to_delete_appointment_with_section_time_day_week_mont
 @Then("this appointment is deleted")
 public void this_appointment_is_deleted() {
   if(delete==true)
-	assertTrue(delete&&registrTest.registerr);
+	assertTrue(delete&&register.registerr);
 	
 	
 }
@@ -249,9 +251,9 @@ public void this_appointment_is_deleted() {
 public void the_user_is_already_booked_an_appointment_with_section_time_day_week_month
 (String string, String string2, Integer int1, Integer int2, Integer int3) {
 
-	registrTest.registerr =true; 
+	register.registerr =true; 
 
-    	a1.Section=string;
+    	a1.section=string;
     	a1.time=string2 ;
     	
     	
@@ -259,7 +261,7 @@ public void the_user_is_already_booked_an_appointment_with_section_time_day_week
     	a1.week=int2;
     	a1.month=int3;
 
-    		clientt.app.add(a1);
+    		MyClient.app.add(a1);
         
 
 
@@ -273,20 +275,20 @@ public void the_user_is_already_booked_an_appointment_with_section_time_day_week
 @When("the user want to change the time of appointment with section {string}, time {string}, day {int},week {int},month {int} to time {string}")
 public void the_user_want_to_change_the_time_of_appointment_with_section_time_day_week_month_to_time
 (String string, String string2, Integer int1, Integer int2, Integer int3, String string3) {
-	for(appointment b :clientt.app) {
-    	if(b.Section.equals(string)&& b.time.equals(string2)&& b.day==int1 &&b.week==int2 && b.month== int3){
+	for(Appointment b :MyClient.app) {
+    	if(b.section.equals(string)&& b.time.equals(string2)&& b.day==int1 &&b.week==int2 && b.month== int3){
            
-    	 clientt.app.remove(b);
+    	 MyClient.app.remove(b);
     		b.time=string3;
         
-        	b.Section=string;
+        	b.section=string;
         	b.time=string2 ;
         	
         	
         	b.day=int1;
         	b.week=int2;
         	b.month=int3;
-            clientt.app.add(b);
+            MyClient.app.add(b);
             update=true;
 
     	}
@@ -302,7 +304,7 @@ public void this_appointment_is_updated() {
    
 	if (update==true) {
 		
-		assertTrue(update && registrTest.registerr);
+		assertTrue(update && register.registerr);
 	
 	}
 }

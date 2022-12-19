@@ -1,19 +1,20 @@
-package newSoftware;
+package clinic;
 
 
 
 import static org.junit.Assert.assertTrue;
 
+import clinic.MyClient;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class loginSteps {
 	
-	clientt c;
+	MyClient c;
 	static boolean loginflag;
 
-	public loginSteps(clientt c1) {
+	public loginSteps(MyClient c1) {
 		c=c1;
 	}
 	

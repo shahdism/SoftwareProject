@@ -1,13 +1,15 @@
-package newSoftware;
+package clinic;
 
 import static org.junit.Assert.assertTrue;
 
+import clinic.Appointment;
+import clinic.MyClient;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class addAp {
-	appointment pp;
+	Appointment pp;
 	boolean booking=false;
 	boolean exist2=false;
 	boolean edit=false;
@@ -16,7 +18,7 @@ public class addAp {
 	   
 	
 	
-	public addAp( appointment p      ) {
+	public addAp( Appointment p      ) {
 		pp=p;
 	}	
 	
@@ -25,7 +27,7 @@ public class addAp {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		loginSteps.loginflag=true;
-		pp.Section=string;
+		pp.section=string;
 		pp.time=string2;
 		pp.day=int1;
 		pp.month=int2;
@@ -45,7 +47,7 @@ public class addAp {
 	public void the_appointment_with_section_time_username_day_month_week_is_booked_in_clinic(String string, String string2, String string3, Integer int1, Integer int2, Integer int3) {
 	    // Write code here that turns the phrase above into concrete actions
 		if (booking==true) {
-			   clientt.app.add(pp);
+			   MyClient.app.add(pp);
 		   } 
 		   assertTrue(booking);
 			}
@@ -70,9 +72,9 @@ public class addAp {
 	@When("the appointment with section {string},time {string},day {int},month {int} ,week {int} is added")
 	public void the_appointment_with_section_time_day_month_week_is_added(String string, String string2, Integer int1, Integer int2, Integer int3) {
 	    // Write code here that turns the phrase above into concrete actions
-		for(appointment p :clientt.app)
+		for(Appointment p :MyClient.app)
 		{
-		if(p.Section.equals(string) && p.time.equals(string2) && p.day==int1 && p.month==int2 && p.week ==int3)				
+		if(p.section.equals(string) && p.time.equals(string2) && p.day==int1 && p.month==int2 && p.week ==int3)				
 			exist2=true;
 		}	}
 
@@ -86,7 +88,7 @@ public class addAp {
 	@When("the user with username {string} want to change the date of appointment to day {int}, month {int} ,week {int}")
 	public void the_user_with_username_want_to_change_the_date_of_appointment_to_day_month_week(String string, Integer int1, Integer int2, Integer int3) {
 	    // Write code here that turns the phrase above into concrete actions
-		for(appointment p :clientt.app)
+		for(Appointment p :MyClient.app)
 		{
 			if(p.username.equals(string))
 			{
@@ -116,11 +118,11 @@ public class addAp {
 	public void the_appointment_with_section_time_username_day_month_week_is_deleted_in_clinic(String string, String string2, String string3, Integer int1, Integer int2, Integer int3) {
 	    // Write code here that turns the phrase above into concrete actions
 		
-		for(appointment p: clientt.app)
+		for(Appointment p: MyClient.app)
 		{
 			if(p.username.equals(string))
 			{
-				clientt.app.remove(p);
+				MyClient.app.remove(p);
 				delete=true;
 
 
@@ -141,7 +143,7 @@ public class addAp {
 	@When("the admin is searched for appointment with username {string}")
 	public void the_admin_is_searched_for_appointment_with_username(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-		for(appointment p: clientt.app)
+		for(Appointment p: MyClient.app)
 		{
 			if(p.username.equals(string))
 			{

@@ -1,4 +1,4 @@
-package newSoftware;
+package clinic;
 
 import static org.junit.Assert.assertTrue;
 

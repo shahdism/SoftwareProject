@@ -1,7 +1,8 @@
-package newSoftware;
+package clinic;
 
 import static org.junit.Assert.assertTrue;
 
+import clinic.MyServices;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -12,9 +13,9 @@ public class servicess {
 	boolean servicesUpdated=false;
 
 
-	services s;
+	MyServices s;
 	
-	public servicess(services s1)
+	public servicess(MyServices s1)
 	{
 		s=s1;
 	}
@@ -25,8 +26,8 @@ public class servicess {
 		loginSteps.loginflag=true;
 		s.price=int1;
 		s.serviceName=string;
-		s.serviceId=string2;
-		services.manageServices.add(s);
+		s.serviceid=string2;
+		MyServices.manageServices.add(s);
 		servicesAdded=true;
 		
 		
@@ -44,10 +45,10 @@ public class servicess {
 	    // Write code here that turns the phrase above into concrete actions
 
 		loginSteps.loginflag=true;
-		for(services sv : services.manageServices)
+		for(MyServices sv : MyServices.manageServices)
 		{
-			if(sv.serviceId.equals(string2) && sv.serviceName.equals(string) && sv.price == int1)
-				services.manageServices.remove(sv);
+			if(sv.serviceid.equals(string2) && sv.serviceName.equals(string) && sv.price == int1)
+				MyServices.manageServices.remove(sv);
 
 		}
 		servicesDeleted=true;
@@ -66,15 +67,15 @@ public void the_service_deleted_successfully() {
 public void admin_try_to_update_service_with_name_price_id_to_service_with_name_price_id(String string, Integer int1, String string2, String string3, Integer int2, String string4) {
     // Write code here that turns the phrase above into concrete actions
 	loginSteps.loginflag=true;
-	for(services sv : services.manageServices)
+	for(MyServices sv : MyServices.manageServices)
 	{
-		if(sv.serviceId.equals(string2) && sv.serviceName.equals(string) && sv.price == int1)
+		if(sv.serviceid.equals(string2) && sv.serviceName.equals(string) && sv.price == int1)
 			
-			services.manageServices.remove(sv);
+			MyServices.manageServices.remove(sv);
 			sv.serviceName=string3;
-		    sv.serviceId=string4;
+		    sv.serviceid=string4;
 		    sv.price=int2;
-			services.manageServices.add(sv);
+			MyServices.manageServices.add(sv);
 
 
 	}
